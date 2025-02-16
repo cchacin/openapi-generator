@@ -37,7 +37,6 @@ namespace Org.OpenAPITools.Model
         public TestDescendants(string alternativeName)
         {
             AlternativeName = alternativeName;
-            ObjectType = (ObjectTypeEnum)Enum.Parse(typeof(ObjectTypeEnum), this.GetType().Name);
             OnCreated();
         }
 
@@ -114,13 +113,6 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonPropertyName("alternativeName")]
         public string AlternativeName { get; set; }
-
-        /// <summary>
-        /// The discriminator
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public ObjectTypeEnum ObjectType { get; }
 
         /// <summary>
         /// Gets or Sets additional properties

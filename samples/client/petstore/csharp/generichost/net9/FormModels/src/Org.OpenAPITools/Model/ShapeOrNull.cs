@@ -62,6 +62,12 @@ namespace Org.OpenAPITools.Model
         public Quadrilateral Quadrilateral { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShapeType
+        /// </summary>
+        [JsonPropertyName("shapeType")]
+        public string ShapeType { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]

@@ -39,7 +39,6 @@ namespace Org.OpenAPITools.Model
         [JsonConstructor]
         public CopyActivity(string copyActivitytt) : base()
         {
-            Schema = (SchemaEnum)Enum.Parse(typeof(SchemaEnum), this.GetType().Name);
             CopyActivitytt = copyActivitytt;
             OnCreated();
         }
@@ -97,13 +96,6 @@ namespace Org.OpenAPITools.Model
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }
-
-        /// <summary>
-        /// The discriminator
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public new SchemaEnum Schema { get; }
 
         /// <summary>
         /// Gets or Sets CopyActivitytt

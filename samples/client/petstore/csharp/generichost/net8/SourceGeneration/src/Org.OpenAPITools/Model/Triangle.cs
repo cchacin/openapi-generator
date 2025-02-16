@@ -80,6 +80,12 @@ namespace Org.OpenAPITools.Model
         public ScaleneTriangle? ScaleneTriangle { get; set; }
 
         /// <summary>
+        /// Gets or Sets TriangleType
+        /// </summary>
+        [JsonPropertyName("triangleType")]
+        public string TriangleType { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]

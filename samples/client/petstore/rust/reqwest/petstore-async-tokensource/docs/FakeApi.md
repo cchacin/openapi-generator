@@ -22,7 +22,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **user_name** | **String** | The name that needs to be fetched. Use user1 for testing. | [required] |
 **dummy_required_nullable_param** | Option<**String**> | To test nullable required parameters | [required] |
-**any_type** | **String** |  | [required] |
+**any_type** | [**serde_json::Value**](.md) |  | [required] |
 **uppercase** | Option<**String**> | To test parameter names in upper case |  |
 **content** | Option<**String**> | To test escaping of parameters in rust code works |  |
 

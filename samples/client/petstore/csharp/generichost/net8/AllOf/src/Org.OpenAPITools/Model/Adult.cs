@@ -60,6 +60,19 @@ namespace Org.OpenAPITools.Model
         public List<Child>? Children { get { return this.ChildrenOption; } set { this.ChildrenOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of Type
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public new Option<string?> TypeOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [JsonPropertyName("$_type")]
+        public new string? Type { get { return this.TypeOption } set { this.TypeOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>

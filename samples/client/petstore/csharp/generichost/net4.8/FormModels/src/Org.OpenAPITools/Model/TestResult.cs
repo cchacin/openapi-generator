@@ -32,11 +32,11 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TestResult" /> class.
         /// </summary>
-        /// <param name="code">code</param>
+        /// <param name="code">Result code</param>
         /// <param name="data">list of named parameters for current message</param>
         /// <param name="uuid">Result unique identifier</param>
         [JsonConstructor]
-        public TestResult(Option<TestResultCode?> code = default, Option<Dictionary<string, string>> data = default, Option<string> uuid = default)
+        public TestResult(Option<string> code = default, Option<Dictionary<string, string>> data = default, Option<string> uuid = default)
         {
             CodeOption = code;
             DataOption = data;
@@ -58,6 +58,20 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonPropertyName("code")]
         public TestResultCode? Code { get { return this.CodeOption; } set { this.CodeOption = new Option<TestResultCode?>(value); } }
+
+        /// <summary>
+        /// Used to track the state of Code
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string> CodeOption { get; private set; }
+
+        /// <summary>
+        /// Result code
+        /// </summary>
+        /// <value>Result code</value>
+        [JsonPropertyName("code")]
+        public string Code { get { return this.CodeOption; } set { this.CodeOption = new Option<string>(value); } }
 
         /// <summary>
         /// Used to track the state of Data
@@ -142,7 +156,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<TestResultCode?> code = default;
+            Option<string> code = default;
             Option<Dictionary<string, string>> data = default;
             Option<string> uuid = default;
 
@@ -162,9 +176,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "code":
-                            string codeRawValue = utf8JsonReader.GetString();
-                            if (codeRawValue != null)
-                                code = new Option<TestResultCode?>(TestResultCodeValueConverter.FromStringOrDefault(codeRawValue));
+                            code = new Option<string>(utf8JsonReader.GetString());
                             break;
                         case "data":
                             if (utf8JsonReader.TokenType != JsonTokenType.Null)
@@ -215,6 +227,9 @@ namespace Org.OpenAPITools.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TestResult testResult, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (testResult.CodeOption.IsSet && testResult.Code == null)
+                throw new ArgumentNullException(nameof(testResult.Code), "Property is required for class TestResult.");
+
             if (testResult.DataOption.IsSet && testResult.Data == null)
                 throw new ArgumentNullException(nameof(testResult.Data), "Property is required for class TestResult.");
 
@@ -222,10 +237,8 @@ namespace Org.OpenAPITools.Model
                 throw new ArgumentNullException(nameof(testResult.Uuid), "Property is required for class TestResult.");
 
             if (testResult.CodeOption.IsSet)
-            {
-                var codeRawValue = TestResultCodeValueConverter.ToJsonValue(testResult.Code.Value);
-                writer.WriteString("code", codeRawValue);
-            }
+                writer.WriteString("code", testResult.Code);
+
             if (testResult.DataOption.IsSet)
             {
                 writer.WritePropertyName("data");

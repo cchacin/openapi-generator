@@ -65,6 +65,12 @@ namespace Org.OpenAPITools.Model
         public ComplexQuadrilateral? ComplexQuadrilateral { get; set; }
 
         /// <summary>
+        /// Gets or Sets QuadrilateralType
+        /// </summary>
+        [JsonPropertyName("quadrilateralType")]
+        public string QuadrilateralType { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]

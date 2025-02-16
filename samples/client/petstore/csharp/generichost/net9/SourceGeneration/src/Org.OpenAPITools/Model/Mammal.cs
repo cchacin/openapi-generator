@@ -80,6 +80,12 @@ namespace Org.OpenAPITools.Model
         public Pig? Pig { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClassName
+        /// </summary>
+        [JsonPropertyName("className")]
+        public string ClassName { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]

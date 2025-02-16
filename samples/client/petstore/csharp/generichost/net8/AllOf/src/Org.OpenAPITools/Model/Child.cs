@@ -62,6 +62,19 @@ namespace Org.OpenAPITools.Model
         public int? Age { get { return this.AgeOption; } set { this.AgeOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of Type
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public new Option<string?> TypeOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [JsonPropertyName("$_type")]
+        public new string? Type { get { return this.TypeOption } set { this.TypeOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of BoosterSeat
         /// </summary>
         [JsonIgnore]

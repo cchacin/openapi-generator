@@ -41,7 +41,6 @@ namespace Org.OpenAPITools.Model
         {
             FirstNameOption = firstName;
             LastNameOption = lastName;
-            Type = this.GetType().Name;
             OnCreated();
         }
 
@@ -74,11 +73,17 @@ namespace Org.OpenAPITools.Model
         public string? LastName { get { return this.LastNameOption; } set { this.LastNameOption = new(value); } }
 
         /// <summary>
-        /// The discriminator
+        /// Used to track the state of Type
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public string Type { get; }
+        public Option<string?> TypeOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [JsonPropertyName("$_type")]
+        public string? Type { get { return this.TypeOption; } set { this.TypeOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets additional properties

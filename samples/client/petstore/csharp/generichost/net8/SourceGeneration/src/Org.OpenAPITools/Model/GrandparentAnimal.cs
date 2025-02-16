@@ -38,18 +38,16 @@ namespace Org.OpenAPITools.Model
         [JsonConstructor]
         public GrandparentAnimal()
         {
-            PetType = this.GetType().Name;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// The discriminator
+        /// Gets or Sets PetType
         /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public string PetType { get; }
+        [JsonPropertyName("pet_type")]
+        public string PetType { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties

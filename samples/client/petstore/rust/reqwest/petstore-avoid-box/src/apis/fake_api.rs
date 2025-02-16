@@ -21,7 +21,7 @@ pub struct TestNullableRequiredParamParams {
     pub user_name: String,
     /// To test nullable required parameters
     pub dummy_required_nullable_param: Option<String>,
-    pub any_type: String,
+    pub any_type: models::serde_json::Value,
     /// To test parameter names in upper case
     pub uppercase: Option<String>,
     /// To test escaping of parameters in rust code works

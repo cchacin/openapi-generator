@@ -37,13 +37,13 @@ impl<C: Connect> FakeApiClient<C>
 }
 
 pub trait FakeApi: Send + Sync {
-    fn test_nullable_required_param(&self, user_name: &str, dummy_required_nullable_param: Option<&str>, any_type: &str, uppercase: Option<&str>, content: Option<&str>) -> Pin<Box<dyn Future<Output = Result<(), Error>> + Send>>;
+    fn test_nullable_required_param(&self, user_name: &str, dummy_required_nullable_param: Option<&str>, any_type: models::serde_json::Value, uppercase: Option<&str>, content: Option<&str>) -> Pin<Box<dyn Future<Output = Result<(), Error>> + Send>>;
 }
 
 impl<C: Connect>FakeApi for FakeApiClient<C>
     where C: Clone + std::marker::Send + Sync {
     #[allow(unused_mut)]
-    fn test_nullable_required_param(&self, user_name: &str, dummy_required_nullable_param: Option<&str>, any_type: &str, uppercase: Option<&str>, content: Option<&str>) -> Pin<Box<dyn Future<Output = Result<(), Error>> + Send>> {
+    fn test_nullable_required_param(&self, user_name: &str, dummy_required_nullable_param: Option<&str>, any_type: models::serde_json::Value, uppercase: Option<&str>, content: Option<&str>) -> Pin<Box<dyn Future<Output = Result<(), Error>> + Send>> {
         let mut req = __internal_request::Request::new(hyper::Method::GET, "/fake/user/{user_name}".to_string())
         ;
         if let Some(ref s) = content {

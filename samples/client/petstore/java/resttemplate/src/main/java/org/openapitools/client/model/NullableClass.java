@@ -57,7 +57,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NullableClass.JSON_PROPERTY_OBJECT_ITEMS_NULLABLE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
-public class NullableClass {
+public class NullableClass extends HashMap<String, Object> {
   public static final String JSON_PROPERTY_INTEGER_PROP = "integer_prop";
   @javax.annotation.Nullable
   private JsonNullable<Integer> integerProp = JsonNullable.<Integer>undefined();
@@ -107,12 +107,14 @@ public class NullableClass {
   private Map<String, Object> objectItemsNullable;
 
   public NullableClass() {
+
   }
 
   /**
    * Constructor with all args parameters
    */
   public NullableClass(@JsonProperty(JSON_PROPERTY_INTEGER_PROP) Integer integerProp, @JsonProperty(JSON_PROPERTY_NUMBER_PROP) BigDecimal numberProp, @JsonProperty(JSON_PROPERTY_BOOLEAN_PROP) Boolean booleanProp, @JsonProperty(JSON_PROPERTY_STRING_PROP) String stringProp, @JsonProperty(JSON_PROPERTY_DATE_PROP) LocalDate dateProp, @JsonProperty(JSON_PROPERTY_DATETIME_PROP) OffsetDateTime datetimeProp, @JsonProperty(JSON_PROPERTY_ARRAY_NULLABLE_PROP) List<Object> arrayNullableProp, @JsonProperty(JSON_PROPERTY_ARRAY_AND_ITEMS_NULLABLE_PROP) List<Object> arrayAndItemsNullableProp, @JsonProperty(JSON_PROPERTY_ARRAY_ITEMS_NULLABLE) List<Object> arrayItemsNullable, @JsonProperty(JSON_PROPERTY_OBJECT_NULLABLE_PROP) Map<String, Object> objectNullableProp, @JsonProperty(JSON_PROPERTY_OBJECT_AND_ITEMS_NULLABLE_PROP) Map<String, Object> objectAndItemsNullableProp, @JsonProperty(JSON_PROPERTY_OBJECT_ITEMS_NULLABLE) Map<String, Object> objectItemsNullable) {
+    super();
     this.integerProp = integerProp == null ? JsonNullable.<Integer>undefined() : JsonNullable.of(integerProp);
     this.numberProp = numberProp == null ? JsonNullable.<BigDecimal>undefined() : JsonNullable.of(numberProp);
     this.booleanProp = booleanProp == null ? JsonNullable.<Boolean>undefined() : JsonNullable.of(booleanProp);
@@ -636,7 +638,8 @@ public class NullableClass {
         equalsNullable(this.objectNullableProp, nullableClass.objectNullableProp) &&
         equalsNullable(this.objectAndItemsNullableProp, nullableClass.objectAndItemsNullableProp) &&
         Objects.equals(this.objectItemsNullable, nullableClass.objectItemsNullable) &&
-        Objects.equals(this.additionalProperties, nullableClass.additionalProperties);
+        Objects.equals(this.additionalProperties, nullableClass.additionalProperties) &&
+        super.equals(o);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -645,7 +648,7 @@ public class NullableClass {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(integerProp), hashCodeNullable(numberProp), hashCodeNullable(booleanProp), hashCodeNullable(stringProp), hashCodeNullable(dateProp), hashCodeNullable(datetimeProp), hashCodeNullable(arrayNullableProp), hashCodeNullable(arrayAndItemsNullableProp), arrayItemsNullable, hashCodeNullable(objectNullableProp), hashCodeNullable(objectAndItemsNullableProp), objectItemsNullable, additionalProperties);
+    return Objects.hash(hashCodeNullable(integerProp), hashCodeNullable(numberProp), hashCodeNullable(booleanProp), hashCodeNullable(stringProp), hashCodeNullable(dateProp), hashCodeNullable(datetimeProp), hashCodeNullable(arrayNullableProp), hashCodeNullable(arrayAndItemsNullableProp), arrayItemsNullable, hashCodeNullable(objectNullableProp), hashCodeNullable(objectAndItemsNullableProp), objectItemsNullable, super.hashCode(), additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -659,6 +662,7 @@ public class NullableClass {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NullableClass {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    integerProp: ").append(toIndentedString(integerProp)).append("\n");
     sb.append("    numberProp: ").append(toIndentedString(numberProp)).append("\n");
     sb.append("    booleanProp: ").append(toIndentedString(booleanProp)).append("\n");

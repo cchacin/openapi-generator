@@ -26,7 +26,7 @@ pub enum TestNullableRequiredParamError {
 
 
 /// 
-pub fn test_nullable_required_param(configuration: &configuration::Configuration, user_name: &str, dummy_required_nullable_param: Option<&str>, any_type: &str, uppercase: Option<&str>, content: Option<&str>) -> Result<(), Error<TestNullableRequiredParamError>> {
+pub fn test_nullable_required_param(configuration: &configuration::Configuration, user_name: &str, dummy_required_nullable_param: Option<&str>, any_type: models::serde_json::Value, uppercase: Option<&str>, content: Option<&str>) -> Result<(), Error<TestNullableRequiredParamError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_user_name = user_name;
     let p_dummy_required_nullable_param = dummy_required_nullable_param;

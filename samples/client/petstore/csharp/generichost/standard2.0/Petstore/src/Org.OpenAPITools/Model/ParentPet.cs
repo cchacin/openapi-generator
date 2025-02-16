@@ -41,6 +41,12 @@ namespace Org.OpenAPITools.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Gets or Sets PetType
+        /// </summary>
+        [JsonPropertyName("pet_type")]
+        public new string PetType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>

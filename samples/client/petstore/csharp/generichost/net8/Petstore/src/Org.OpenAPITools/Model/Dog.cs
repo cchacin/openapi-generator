@@ -44,6 +44,12 @@ namespace Org.OpenAPITools.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Gets or Sets ClassName
+        /// </summary>
+        [JsonPropertyName("className")]
+        public new string ClassName { get; set; }
+
+        /// <summary>
         /// Used to track the state of Breed
         /// </summary>
         [JsonIgnore]

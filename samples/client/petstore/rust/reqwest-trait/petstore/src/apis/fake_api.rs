@@ -23,7 +23,7 @@ use super::{Error, configuration};
 pub trait FakeApi: Send + Sync {
 
     /// GET /fake/user/{user_name}
-    async fn test_nullable_required_param<'user_name, 'dummy_required_nullable_param, 'any_type, 'uppercase, 'content>(&self, user_name: &'user_name str, dummy_required_nullable_param: Option<&'dummy_required_nullable_param str>, any_type: &'any_type str, uppercase: Option<&'uppercase str>, content: Option<&'content str>) -> Result<(), Error<TestNullableRequiredParamError>>;
+    async fn test_nullable_required_param<'user_name, 'dummy_required_nullable_param, 'any_type, 'uppercase, 'content>(&self, user_name: &'user_name str, dummy_required_nullable_param: Option<&'dummy_required_nullable_param str>, any_type: models::serde_json::Value, uppercase: Option<&'uppercase str>, content: Option<&'content str>) -> Result<(), Error<TestNullableRequiredParamError>>;
 }
 
 pub struct FakeApiClient {
@@ -41,7 +41,7 @@ impl FakeApiClient {
 #[async_trait]
 impl FakeApi for FakeApiClient {
     /// 
-    async fn test_nullable_required_param<'user_name, 'dummy_required_nullable_param, 'any_type, 'uppercase, 'content>(&self, user_name: &'user_name str, dummy_required_nullable_param: Option<&'dummy_required_nullable_param str>, any_type: &'any_type str, uppercase: Option<&'uppercase str>, content: Option<&'content str>) -> Result<(), Error<TestNullableRequiredParamError>> {
+    async fn test_nullable_required_param<'user_name, 'dummy_required_nullable_param, 'any_type, 'uppercase, 'content>(&self, user_name: &'user_name str, dummy_required_nullable_param: Option<&'dummy_required_nullable_param str>, any_type: models::serde_json::Value, uppercase: Option<&'uppercase str>, content: Option<&'content str>) -> Result<(), Error<TestNullableRequiredParamError>> {
         let local_var_configuration = &self.configuration;
 
         let local_var_client = &local_var_configuration.client;
